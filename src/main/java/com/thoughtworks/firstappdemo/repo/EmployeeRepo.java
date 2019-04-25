@@ -15,7 +15,7 @@ public class EmployeeRepo {
     private final static AtomicInteger idGenerator = new AtomicInteger();
 
     public boolean save(Employee employee) {
-        Integer id = idGenerator.incrementAndGet();
+        Integer id = idGenerator.getAndIncrement();
         employee.setId(id);
         return repository.put(id, employee) == null;
     }
