@@ -15,6 +15,7 @@ public class EmployeeRepo {
 
     public boolean save(Employee employee) {
         Integer id = idGenerator.incrementAndGet();
+        employee.setId(id);
         return repository.put(id, employee) == null;
     }
 }
