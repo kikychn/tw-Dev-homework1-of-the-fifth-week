@@ -3,6 +3,7 @@ package com.thoughtworks.firstappdemo.repo;
 import com.thoughtworks.firstappdemo.domain.Employee;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,5 +18,9 @@ public class EmployeeRepo {
         Integer id = idGenerator.incrementAndGet();
         employee.setId(id);
         return repository.put(id, employee) == null;
+    }
+
+    public Collection<Employee> findAll() {
+        return repository.values();
     }
 }
