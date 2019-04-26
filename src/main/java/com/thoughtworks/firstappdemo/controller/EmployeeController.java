@@ -3,9 +3,12 @@ package com.thoughtworks.firstappdemo.controller;
 import com.thoughtworks.firstappdemo.domain.Employee;
 import com.thoughtworks.firstappdemo.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
 
 @RestController
 public class EmployeeController {
@@ -27,5 +30,10 @@ public class EmployeeController {
             System.out.println("员工对象保存成功：" + employee.toString());
         }
         return employee;
+    }
+
+    @GetMapping("/employees")
+    public Collection<Employee> findAllEmployees() {
+        return employeeRepo.findAll();
     }
 }
