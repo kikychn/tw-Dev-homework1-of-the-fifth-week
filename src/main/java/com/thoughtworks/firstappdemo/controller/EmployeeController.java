@@ -13,9 +13,9 @@ import java.util.Collection;
 @RestController
 public class EmployeeController {
 
+    @Autowired
     private final EmployeeRepo employeeRepo;
 
-    @Autowired
     public EmployeeController(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
     }
